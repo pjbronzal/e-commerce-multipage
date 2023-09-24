@@ -7,7 +7,11 @@
 }
 
 nav {
-  justify-content: center;
+  // position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  overflow: hidden;
 
   img {
     width: 150px;
@@ -19,9 +23,24 @@ nav {
     font-size: 15px;
     font-weight: bold;
   }
+}
 
-  //   .form-control {
-  //     width: 100%;
-  //     margin: auto;
-  //   }
+.menu {
+  .menu-list {
+    flex: 1;
+    padding: 20px;
+  }
+
+  .order-list {
+    border-left: 1px solid #dedede;
+    flex: 0 0 auto;
+    top: 100px;
+    height: 80vh;
+    overflow-y: auto;
+
+    .order-items {
+      margin-top: 20px;
+      height: 300px;
+    }
+  }
 }

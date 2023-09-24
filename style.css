@@ -6,7 +6,10 @@
 }
 
 nav {
-  justify-content: center;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  overflow: hidden;
 }
 nav img {
   width: 150px;
@@ -16,4 +19,20 @@ nav ul li {
   margin: 0 10px;
   font-size: 15px;
   font-weight: bold;
+}
+
+.menu .menu-list {
+  flex: 1;
+  padding: 20px;
+}
+.menu .order-list {
+  border-left: 1px solid #dedede;
+  flex: 0 0 auto;
+  top: 100px;
+  height: 80vh;
+  overflow-y: auto;
+}
+.menu .order-list .order-items {
+  margin-top: 20px;
+  height: 300px;
 }

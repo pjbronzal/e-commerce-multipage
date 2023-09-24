@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/mcdo-logo.png">
+    <title>Menu</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg position-sticky bg-warning">
+        <div class="container-fluid">
+            <a class="navbar-brand ms-5" href="#"><img src="img/McDelivery.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">My Account</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-5" type="search" placeholder="Search">
+            </div>
+        </div>
+    </nav>
+
+    <section id="menu">
+        <div class="container-fluid menu d-flex">
+            <div class="row">
+                <div class="col-md-9 pt-4 menu-list">
+                    <h4 class="text-center fw-bold">Choose Your Meal</h4>
+
+                    <div class="container">
+                        <!-- 1st Main Meal -->
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                <div class="card mb-3">
+                                    <img src="img/1-pc. Mushroom Pepper Steak Rice Bowl Solo.webp" class="card-img-top">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Mushroom Pepper Steak</h5>
+                                        <div class="row">
+                                            <div class="col-6 fw-bold price">₱79.00</div>
+                                            <div class="col-6 text-end">
+                                                <button onclick="orderMeal('Mushroom Pepper Steak', 79)" id=""
+                                                    class="btn btn-sm btn-warning"><i
+                                                        class="fa-solid fa-plus"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="card mb-3">
+                                    <img src="img/Burger Mcdo Solo.png" class="card-img-top">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Burger McDo Solo
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+                                        <div class="row">
+                                            <div class="col-6 fw-bold price">₱44.00</div>
+                                            <div class="col-6 text-end">
+                                                <button onclick="orderMeal('Burger McDo Solo', 44)"
+                                                    class="btn btn-sm btn-warning"><i
+                                                        class="fa-solid fa-plus"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="card mb-3">
+                                    <img src="img/McSpaghetti Solo.webp" class="card-img-top">
+                                    <div class="card-body">
+                                        <h5 class="card-title">McSpaghetti Solo
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+                                        <div class="row">
+                                            <div class="col-6 fw-bold price">₱72.00</div>
+                                            <div class="col-6 text-end">
+                                                <button onclick="orderMeal('McSpaghetti Solo', 72)"
+                                                    class="btn btn-sm btn-warning"><i
+                                                        class="fa-solid fa-plus"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="card mb-3">
+                                    <img src="img/McCafé Iced Coffee Original.webp" class="card-img-top">
+                                    <div class="card-body">
+                                        <h5 class="card-title">McCafé Iced Coffee Original</h5>
+                                        <div class="row">
+                                            <div class="col-6 fw-bold price">₱61.00</div>
+                                            <div class="col-6 text-end">
+                                                <button onclick="orderMeal('McCafé Iced Coffee Original', 61)"
+                                                    class="btn btn-sm btn-warning"><i
+                                                        class="fa-solid fa-plus"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="col-md-3 order-list position-sticky p-0">
+                    <div class="d-flex flex-column justify-content-between">
+                        <h4 class="fw-bold text-center">Order List</h4>
+                        <div class="order-items overflow-auto p-3">
+                            <!-- <p>Cheesecake</p>
+                            <p>Cheesecake</p>
+                            <p>Cheesecake</p>
+                            <p>Cheesecake</p>
+                            <p>Cheesecake</p>
+                            <p>Cheesecake</p>
+                            <p>Cheesecake</p>
+                            <p>Cheesecake</p>
+                            <p>Cheesecake</p>
+                            <p>Cheesecake</p>
+                            <p>Cheesecake</p> -->
+                        </div>
+                        <div class="total p-2">
+                            <hr>
+                            <p class="fw-bold">Total</p>
+                            <button class="btn btn-warning w-100 rounded-5 fw-bold">Proceed To Checkout</button>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <!-- <script src="index.js"></script> -->
+</body>
+
+</html>
