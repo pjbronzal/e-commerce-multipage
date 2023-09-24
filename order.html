@@ -51,20 +51,17 @@
     </nav>
 
     <section id="order-section">
-        <div class="container mt-5">
+        <div class="container mt-5" id="order-section-content">
             <div class="row">
                 <div class="col-md-7 col-12">
                     <div class="card-header text-center">
-                        <div class="card-header d-flex justify-content-evenly">
-                            <span>
-                                <h4><a href="menu.html" class="text-dark"><i class="fa-solid fa-arrow-left"></i></a>
-                                </h4>
-                            </span>
-                            <h4 class="fw-bold ms-5">Delivery On-The-Way</h4>
+                        <div class="card-header d-flex justify-content-center">
+                            <h4 class="fw-bold ms-5">Your Food Delivery Is On-The-Way</h4>
                         </div>
                     </div>
                     <div class="card-body text-center">
                         <img src="img/delivery.gif" alt="">
+                        <p>Kindly wait for your delivery to arrive before receiving.</p>
                     </div>
 
                     <div class="row">
@@ -109,6 +106,25 @@
                         <div class="col-md-6 col-12">
                             <p class="fw-bold text-end" id="total"></p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-5" id="emptyContent">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card-header text-center">
+                        <div class="card-header d-flex">
+                            <span>
+                                <h4><a href="menu.html" class="text-dark"><i class="fa-solid fa-arrow-left"></i></a>
+                                </h4>
+                            </span>
+                            <h4 class="fw-bold ms-5">Go Back To Menu</h4>
+                        </div>
+                    </div>
+                    <div class="card-body text-center">
+                        <img src="img/emptyCart.webp" alt="">
+                        <p>No orders found. Add something from the menu.</p>
                     </div>
                 </div>
             </div>
@@ -171,6 +187,23 @@
 
         var randNoElement = document.getElementById("randNo");
         randNoElement.textContent = generateRandomNumber();
+
+        // Check if local storage has data when the page loads
+        window.addEventListener("load", function () {
+            const notEmptyContent = document.getElementById("order-section-content");
+            const emptyContent = document.getElementById("emptyContent");
+
+            // Check if local storage has data
+            if (localStorage.getItem("new")) {
+                // If local storage has data, show the content for when it's not empty
+                notEmptyContent.style.display = "block";
+                emptyContent.style.display = "none";
+            } else {
+                // If local storage is empty, show the content for when it's empty
+                notEmptyContent.style.display = "none";
+                emptyContent.style.display = "block";
+            }
+        });
     </script>
 </body>
 
