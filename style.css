@@ -109,3 +109,8 @@ nav .form-control {
   border: 1px solid #ccc;
   padding: 0 5px;
 }
+
+.modal .modal-body,
+.modal button {
+  font-size: 14px;
+}

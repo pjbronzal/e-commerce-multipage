@@ -263,3 +263,13 @@ function minusQty(index) {
 
 customer.showproducts();
 showorder();
+
+document
+  .getElementById("proceedCheckout")
+  .addEventListener("click", function () {
+    if (localStorage.getItem("new")) {
+      window.location.href = "order.html";
+    } else {
+      alert("No order found.");
+    }
+  });
