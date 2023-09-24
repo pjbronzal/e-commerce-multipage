@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="img/mcdo-logo.png">
 
@@ -47,7 +50,7 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
-    <nav class="navbar navbar-expand-lg bg-warning">
+    <nav class="navbar navbar-expand-lg position-fixed bg-warning">
         <div class="container-fluid">
             <a class="navbar-brand ms-5" href="#"><img src="img/McDelivery.png" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -309,22 +312,23 @@
 
                     </div>
                 </div>
-                <div class="col-sm-5 col-12 receipt">
+                <div class="col-sm-5 col-12 order-list">
                     <div class="card">
                         <div class="card-header bg-white text-center">
                             <h4 class="fw-bold">Order List</h4>
                         </div>
                         <div class="card-body bg-white" id="dataContainer">
                             <div class="row">
-                                <div class="col-9">
-                                    <p class="fw-bold">ITEM</p>
-                                    <ul id="itemName"></ul>
-                                </div>
-                                <div class="col-3 text-end">
-                                    <p class="fw-bold">AMOUNT</p>
-                                    <ul id="itemPrice"></ul>
-                                </div>
+                                <!-- <div class="col-9"> -->
+                                <!-- <p class="fw-bold">ITEM</p> -->
+                                <ul id="itemName"></ul>
+                                <!-- </div> -->
+                                <!-- <div class="col-3 text-end"> -->
+                                <!-- <p class="fw-bold">AMOUNT</p> -->
+                                <ul id="itemPrice"></ul>
+                                <!-- </div> -->
                             </div>
+
 
                             <div class="row">
                                 <hr class="mt-2">
@@ -379,7 +383,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
-    <!-- <script src="index.js"></script> -->
+    <script src="index.js"></script>
 </body>
 
 </html>
