@@ -3,13 +3,76 @@ let user = {
   menulist: [
     {
       id: 1,
-      mealName: "McFlurry with Oreo",
+      mealName: "Mushroom Pepper Steak",
+      price: 79,
+      image: "img/Mushroom Pepper Steak Rice Bowl Solo.webp",
+    },
+    {
+      id: 2,
+      mealName: "Burger McDo Solo",
+      price: 44,
+      image: "img/Burger Mcdo Solo.png",
+    },
+    {
+      id: 3,
+      mealName: "McSpaghetti Solo",
+      price: 72,
+      image: "img/McSpaghetti Solo.webp",
+    },
+    {
+      id: 4,
+      mealName: "McCafé Iced Coffee Original",
+      price: 61,
+      image: "img/McCafé Iced Coffee Original.webp",
+    },
+    {
+      id: 5,
+      mealName: "McCrispy Chicken Sandwich Solo",
+      price: 61,
+      image: "img/McCrispy Chicken Sandwich Solo.png",
+    },
+    {
+      id: 6,
+      mealName: "McCrispy Chicken Fillet Ala King Solo",
+      price: 89,
+      image: "img/McCrispy Chicken Fillet Ala King Solo.webp",
+    },
+    {
+      id: 7,
+      mealName: "McCrispy Chicken Fillet Solo",
+      price: 79,
+      image: "img/McCrispy Chicken Fillet Solo.webp",
+    },
+    {
+      id: 8,
+      mealName: "McDonald's Medium Fries",
+      price: 60,
+      image: "img/Medium Fries.webp",
+    },
+    {
+      id: 9,
+      mealName: "McFlurry® with Oreo®",
       price: 59,
       image: "img/McFlurry with Oreo.png",
     },
-    { id: 2, mealName: "Samsung", price: 30000 },
-    { id: 3, mealName: "Vans", price: 3000 },
-    { id: 4, mealName: "Dell Laptop", price: 40000 },
+    {
+      id: 10,
+      mealName: "Hot Fudge Sundae",
+      price: 53,
+      image: "img/Hot Fudge Sundae.webp",
+    },
+    {
+      id: 11,
+      mealName: "Coke McFloat Medium",
+      price: 55,
+      image: "img/Coke McFloat.png",
+    },
+    {
+      id: 12,
+      mealName: "Lipton Iced Tea",
+      price: 79,
+      image: "img/Lipton Iced Tea.webp",
+    },
   ],
   orderedlist: [],
   showproducts() {
@@ -18,7 +81,7 @@ let user = {
     // Loop for Array
     this.menulist.forEach(function (lalagyan) {
       menulist += `
-      <div class="col-md-3">
+      <div class="col-md-3 col-12">
         <div class="card mb-3">
             <p id="ids${lalagyan.id}" hidden>${lalagyan.id}</p>
             <img id="image${lalagyan.id}" src="${lalagyan.image}" class="card-img-top">
@@ -95,7 +158,7 @@ function showorder() {
               <li>${lalagyan.mealName}</li>
           </div>
   
-          <div class="col-3 text-end">
+          <div class="col-3 text-center">
               <li>${lalagyan.price}</li>
           </div>
         </div>
@@ -119,18 +182,6 @@ function deleteThisOrder(index) {
 
     showorder();
   }
-}
-
-function del() {
-  localStorage.removeItem("new");
-  showorder();
-}
-
-function delRecent() {
-  let ords = JSON.parse(localStorage.getItem("new"));
-  ords.pop();
-  localStorage.setItem("new", JSON.stringify(ords));
-  showorder();
 }
 
 user.showproducts();
