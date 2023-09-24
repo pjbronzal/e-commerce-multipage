@@ -21,46 +21,46 @@ nav ul li {
   font-weight: bold;
 }
 
-#menu {
+#menu-section {
   margin: 100px 0;
 }
-#menu .menu .card-title {
+#menu-section .menu .card-title {
   font-size: 12px;
 }
-#menu .menu .price {
+#menu-section .menu .price {
   font-size: 10.5px;
 }
-#menu .menu .card {
+#menu-section .menu .card {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   background-color: #f4f4f4;
   border: 0;
 }
-#menu .order-list {
+#menu-section .order-list {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
   height: 100%;
   overflow: auto;
 }
-#menu .order-list .card {
+#menu-section .order-list .card {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
-#menu .order-list ul {
+#menu-section .order-list ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-#menu .order-list ul li {
+#menu-section .order-list ul li {
   font-size: 12px;
   margin-bottom: 5px;
 }
-#menu .order-list .list-item-container {
+#menu-section .order-list .list-item-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 5px;
 }
-#menu .order-list .delete-button {
+#menu-section .order-list .delete-button {
   cursor: pointer;
   color: red;
   font-size: 16px;
