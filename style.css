@@ -77,6 +77,13 @@ nav .form-control {
   border-radius: 25px;
 }
 
+#order-section {
+  margin: 100px 0 0;
+}
+#order-section img {
+  width: 600px;
+}
+
 .wrapper span {
   font-size: 12px;
 }

@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="img/mcdo-logo.png">
 
-    <title>Menu</title>
+    <title>Order</title>
 </head>
 
 <body>
@@ -50,22 +50,27 @@
         </div>
     </nav>
 
-    <section id="menu-section">
+    <section id="order-section">
         <div class="container mt-5">
             <div class="row">
-                <div class="col-md-7 col-12 mb-3 menu">
-                    <div class="border-0">
-                        <div class="card-header text-center">
-                            <h4 class="fw-bold p-1">Choose Your Meal</h4>
+                <div class="col-md-6 col-12">
+                    <div class="card-header text-center">
+                        <div class="card-header d-flex justify-content-evenly">
+                            <span>
+                                <h4><a href="menu.html" class="text-dark"><i class="fa-solid fa-arrow-left"></i></a>
+                                </h4>
+                            </span>
+                            <h4 class="fw-bold ms-5">Delivery On-The-Way</h4>
                         </div>
-                        <!-- <hr> -->
-                        <div class="card-body mt-4">
-                            <div class="row d-flex flex-wrap justify-content-between" id="menu-list"> </div>
-                        </div>
-
+                    </div>
+                    <div class="card-body text-center">
+                        <img src="img/delivery.gif" alt="">
                     </div>
                 </div>
-                <div class="col-md-5 col-12 order-list">
+                <div class="col-md-6 col-12">
+
+                </div>
+                <!-- <div class="col-md-5 col-12">
                     <div class="card">
                         <div class="card-header bg-white text-center">
                             <h4 class="fw-bold">Order List</h4>
@@ -76,37 +81,36 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="row d-none">
-                                <hr>
-                                <div class="col-md-6 col-12">
-                                    Subtotal
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <!-- replaced -->
-                                    <p class="text-end" id="total"></p>
-                                </div>
-                            </div>
-                            <div class="row d-none">
-                                <div class="col-md-6 col-12">
-                                    Delivery Fee
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <p class="text-end" id="deliveryFee">₱49.00</p>
-                                </div>
-                            </div>
                             <div class="row">
                                 <hr>
-                                <div class="col-md-6 col-12 fw-bold">
-                                    Total
+                                <div class="col-6 fw-bold">
+                                    Subtotal
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <p class="fw-bold text-end" id="subtotal"></p>
                                 </div>
                             </div>
-                            <a href="order.html"><button class="btn btn-warning w-100 fw-bold">Place Order</button></a>
+                            <div class="row">
+                                <div class="col-md-6 col-12 fw-bold">
+                                    Delivery Fee
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <p class="fw-bold text-end" id="deliveryFee">₱49.00</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-12 fw-bold">
+                                    Total
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <p class="fw-bold text-end" id="total"></p>
+                                </div>
+                            </div>
+                            <button class="btn btn-warning w-100 fw-bold">Proceed To Checkout</button>
+
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
