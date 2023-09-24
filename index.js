@@ -9,13 +9,13 @@ let customer = {
     },
     {
       id: 2,
-      mealName: "Burger McDo Solo",
+      mealName: "McDonald's Burger Solo",
       price: 44,
       image: "img/Burger Mcdo Solo.png",
     },
     {
       id: 3,
-      mealName: "McSpaghetti Solo",
+      mealName: "McSpaghetti Solo Meal",
       price: 72,
       image: "img/McSpaghetti Solo.webp",
     },
@@ -69,7 +69,7 @@ let customer = {
     },
     {
       id: 12,
-      mealName: "Lipton Iced Tea",
+      mealName: "McDonald's Lipton Iced Tea",
       price: 79,
       image: "img/Lipton Iced Tea.webp",
     },
@@ -88,8 +88,8 @@ let customer = {
             <div class="card-body">
                 <h5 class="card-title" id="menu${data.id}">${data.mealName}</h5>
                 <div class="row">
-                <div class="col-6 fw-bold price" id="price${data.id}">₱${data.price}.00</div>
-                    <div class="col-6 text-end">
+                <div class="col-md-6 col-12 fw-bold price" id="price${data.id}">₱${data.price}.00</div>
+                    <div class="col-md-6 col-12 text-end">
                     <button class="btn btn-sm btn-warning" onclick="addOrder(${data.id})">+</button>
                     </div>
                 </div>
@@ -184,11 +184,11 @@ function showorder() {
     orderedlist.forEach(function (data, index) {
       orderlist += `
           <div class="row">
-            <div class="col-1 text-center">
+            <div class="col-md-1 col-12 text-center">
                 <button class="btn p-0 border-0" onclick="deleteThisOrder(${index})"><i class="fa-regular fa-trash-can"></i></button>
             </div>
     
-            <div class="wrapper col-3">
+            <div class="wrapper col-md-3 col-12">
               <span class="minus" onclick="minusQty(${index})">-</span>
               <span class="num">${data.quantity
                 .toString()
@@ -196,11 +196,11 @@ function showorder() {
               <span class="plus" onclick="addQty(${index})">+</span>
             </div>
     
-            <div class="col-6 text-start">
+            <div class="col-md-6 col-12 text-start">
                 <li>${data.mealName}</li>
             </div>
     
-            <div class="col-2 text-end">
+            <div class="col-md-2 col-12 text-end">
                 <li>₱${data.totalPrice.toFixed(2)}</li>
             </div>
           </div>

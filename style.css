@@ -20,6 +20,10 @@ nav ul li {
   font-size: 15px;
   font-weight: bold;
 }
+nav .form-control {
+  font-size: 13px;
+  width: 100%;
+}
 
 #menu-section {
   margin: 100px 0 0;
@@ -41,9 +45,10 @@ nav ul li {
   top: 0;
   height: 100%;
   overflow: auto;
+  font-size: 14px;
 }
 #menu-section .order-list #dataContainer {
-  height: 300px;
+  height: 250px;
   overflow: auto;
   overflow-x: hidden;
 }
@@ -66,6 +71,10 @@ nav ul li {
 }
 #menu-section .order-list .fa-regular {
   color: goldenrod;
+}
+#menu-section .order-list button {
+  font-size: 14px;
+  border-radius: 25px;
 }
 
 .wrapper span {
