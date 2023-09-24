@@ -81,23 +81,23 @@ let customer = {
     let menulist = "";
     this.menulist.forEach(function (data) {
       menulist += `
-      <div class="col-md-3 col-12">
-        <div class="card mb-3">
-            <p id="ids${data.id}" hidden>${data.id}</p>
-            <img id="image${data.id}" src="${data.image}" class="card-img-top">
-
-            <div class="card-body">
-                <h5 class="card-title" id="menu${data.id}">${data.mealName}</h5>
-                <div class="row">
-                <div class="col-md-6 col-12 fw-bold price" id="price${data.id}">₱${data.price}.00</div>
-                    <div class="col-md-6 col-12 text-end">
-                    <button class="btn btn-sm btn-warning" onclick="addOrder(${data.id})">+</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        `;
+        <div class="col-md-3 col-12">
+          <div class="card mb-3">
+              <p id="ids${data.id}" hidden>${data.id}</p>
+              <img id="image${data.id}" src="${data.image}" class="card-img-top">
+  
+              <div class="card-body">
+                  <h5 class="card-title" id="menu${data.id}">${data.mealName}</h5>
+                  <div class="row">
+                  <div class="col-md-6 col-12 fw-bold price" id="price${data.id}">₱${data.price}.00</div>
+                      <div class="col-md-6 col-12 text-end">
+                      <button class="btn btn-sm btn-warning" onclick="addOrder(${data.id})">+</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          </div>
+          `;
     });
     menu.innerHTML = menulist;
   },
@@ -173,48 +173,38 @@ function calculateTotal() {
 }
 
 function showorder() {
-  let order = document.getElementById("order");
+  let placedOrder = document.getElementById("placedOrder");
   let orderlist = "";
 
   let orderedlist = JSON.parse(localStorage.getItem("new"));
 
   if (!orderedlist) {
-    order.innerHTML =
-      "<div class='container text-center'><small>No orders yet. Add something from the menu.</small></div>";
+    placedOrder.innerHTML =
+      "<div class='text-center'><small>No orders yet. Add something from the menu.</small></div>";
   } else {
     orderedlist.forEach(function (data, index) {
       orderlist += `
-          <div class="row">
-            <div class="col-md-1 col-12 text-center">
-                <button class="btn p-0 border-0" onclick="deleteThisOrder(${index})"><i class="fa-regular fa-trash-can"></i></button>
-            </div>
-    
-            <div class="wrapper col-md-3 col-12">
-              <span class="minus" onclick="minusQty(${index})">-</span>
-              <span class="num">${data.quantity
-                .toString()
-                .padStart(2, "0")}</span>
-              <span class="plus" onclick="addQty(${index})">+</span>
-            </div>
-    
-            <div class="col-md-6 col-12 text-start">
-                <li>${data.mealName}</li>
-            </div>
-    
-            <div class="col-md-2 col-12 text-end">
-                <li>₱${data.totalPrice.toFixed(2)}</li>
-            </div>
-          </div>
-          `;
-    });
-    order.innerHTML = orderlist;
-  }
+      <div class="row">
+        <div class="col-md-8 col-12 text-start">
+            <li><b>${data.quantity} x ${data.mealName}</b>
+            <ul>
+            <li class="suborder">${data.quantity} x ₱${data.price}.00</li>
+            </ul>
+            </li>
+        </div>
 
-  let totalElement = document.getElementById("total");
-  totalElement.innerText = "₱" + calculateTotal();
+        <div class="col-md-4 col-12 text-end">
+            <li><b>₱${data.totalPrice.toFixed(2)}</b></li>
+        </div>
+      </div>
+      `;
+    });
+    placedOrder.innerHTML = orderlist;
+  }
   updateTotal();
 }
 
+showorder();
 updateTotal();
 
 function deleteThisOrder(index) {

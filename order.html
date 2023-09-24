@@ -53,7 +53,7 @@
     <section id="order-section">
         <div class="container mt-5">
             <div class="row">
-                <div class="col-md-6 col-12">
+                <div class="col-md-7 col-12">
                     <div class="card-header text-center">
                         <div class="card-header d-flex justify-content-evenly">
                             <span>
@@ -67,10 +67,42 @@
                         <img src="img/delivery.gif" alt="">
                     </div>
                 </div>
-                <div class="col-md-6 col-12">
-
+                <div class="col-md-5 col-12 receipt">
+                    <div class="card-header text-center">
+                        <h2 class="fw-bold ms-5">Order #<span id="randNo"></span></h2>
+                        <h5 class="fw-bold ms-5">McDelivery - Caloocan Branch</h5>
+                        <p class="fw-bold ms-5" id="datetime"></p>
+                        <p class="fw-bold ms-5" id=""># ITEM/S</p>
+                    </div>
+                    <div class="container" id="placedOrder"></div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-6">
+                            Subtotal
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <p class="text-end" id="subtotal"></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-12">
+                            Delivery Fee
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <p class="text-end" id="deliveryFee">₱49.00</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-12 fw-bold">
+                            Total
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <p class="fw-bold text-end" id="total"></p>
+                        </div>
+                    </div>
                 </div>
-                <!-- <div class="col-md-5 col-12">
+            </div>
+            <!-- <div class="col-md-5 col-12">
                     <div class="card">
                         <div class="card-header bg-white text-center">
                             <h4 class="fw-bold">Order List</h4>
@@ -111,7 +143,7 @@
                         </div>
                     </div>
                 </div> -->
-            </div>
+        </div>
         </div>
     </section>
 
@@ -124,7 +156,35 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
-    <script src="index.js"></script>
+    <!-- <script src="index.js"></script> -->
+    <script src="try.js"></script>
+
+    <script>
+        // FETCH DATETIME
+        function getCurrentDateTime() {
+            const now = new Date();
+
+            const month = (now.getMonth() + 1).toString().padStart(2, "0");
+            const day = now.getDate().toString().padStart(2, "0");
+            const year = now.getFullYear().toString();
+            const hours = now.getHours().toString().padStart(2, "0");
+            const minutes = now.getMinutes().toString().padStart(2, "0");
+            const formattedDateTime = `${month}/${day}/${year} ${hours}:${minutes}`;
+
+            return formattedDateTime;
+        }
+        const h4Element = document.getElementById("datetime");
+        h4Element.textContent = getCurrentDateTime();
+
+
+        // GENERATION RANDOM NUMBER
+        function generateRandomNumber() {
+            return Math.floor(100 + Math.random() * 100);
+        }
+
+        var randNoElement = document.getElementById("randNo");
+        randNoElement.textContent = generateRandomNumber();
+    </script>
 </body>
 
 </html>
