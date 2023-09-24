@@ -1,5 +1,4 @@
 let customer = {
-  customerName: "",
   orderlist: [],
   menulist: [
     {
@@ -186,7 +185,7 @@ function showorder() {
       orderlist += `
       <div class="row">
         <div class="col-md-8 col-12 text-start">
-            <li><b>${data.quantity} x ${data.mealName}</b>
+            <li><b>${data.quantity}  ${data.mealName}</b>
             <ul>
             <li class="suborder">${data.quantity} x ₱${data.price}.00</li>
             </ul>
@@ -252,5 +251,25 @@ function minusQty(index) {
   updateTotal();
 }
 
-customer.showproducts();
 showorder();
+
+function updateItemCount() {
+  let orderedlist = JSON.parse(localStorage.getItem("new")) || [];
+  let itemCount = orderedlist.length;
+  let itemCountElement = document.getElementById("orderCount");
+
+  if (itemCount === 0) {
+    itemCountElement.innerText = `${itemCount} ITEM/S`;
+  } else {
+    itemCountElement.innerText = `${itemCount} ITEM/S`;
+  }
+}
+
+updateItemCount();
+console.log(updateItemCount());
+
+function orderReceived() {
+  localStorage.removeItem("new");
+  location.reload();
+  showorder();
+}

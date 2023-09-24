@@ -1,5 +1,4 @@
 let customer = {
-  customerName: "",
   orderlist: [],
   menulist: [
     {
