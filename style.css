@@ -54,15 +54,6 @@ nav ul li {
   font-size: 12px;
   margin-bottom: 5px;
 }
-#menu-section .order-list .list-item-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 5px;
-}
-#menu-section .order-list .delete-button {
-  cursor: pointer;
+#menu-section .order-list .fa-regular {
   color: red;
-  font-size: 16px;
-  margin-left: 10px;
 }

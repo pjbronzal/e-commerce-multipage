@@ -3,7 +3,7 @@ let user = {
   menulist: [
     {
       id: 1,
-      mealName: "McFlurry® with Oreo®",
+      mealName: "McFlurry with Oreo",
       price: 59,
       image: "img/McFlurry with Oreo.png",
     },
@@ -78,28 +78,55 @@ function showorder() {
   let order = document.getElementById("order");
   let orderlist = "";
 
-  let orderedlist = JSON.parse(localStorage.getItem("new")); //converts str into obj
+  let orderedlist = JSON.parse(localStorage.getItem("new"));
 
   if (!orderedlist) {
-    order.innerHTML = "<h3>No orders yet.</h3>";
+    order.innerHTML =
+      "<div class='container text-center'><small>No orders yet. Add something from the menu.</small></div>";
   } else {
-    orderedlist.forEach(function (lalagyan) {
-      orderlist += `<li>${lalagyan.mealName}<br>${lalagyan.price}</li>`;
+    orderedlist.forEach(function (lalagyan, index) {
+      orderlist += `
+        <div class="row">
+          <div class="col-2 text-center">
+              <button class="btn p-0 border-0" onclick="deleteThisOrder(${index})"><i class="fa-regular fa-circle-xmark"></i></button>
+          </div>
+  
+          <div class="col-7 text-start">
+              <li>${lalagyan.mealName}</li>
+          </div>
+  
+          <div class="col-3 text-end">
+              <li>${lalagyan.price}</li>
+          </div>
+        </div>
+        `;
     });
     order.innerHTML = orderlist;
   }
 }
 
+function deleteThisOrder(index) {
+  let orderedlist = JSON.parse(localStorage.getItem("new"));
+
+  if (index !== -1) {
+    orderedlist.splice(index, 1);
+
+    if (orderedlist.length === 0) {
+      localStorage.removeItem("new");
+    } else {
+      localStorage.setItem("new", JSON.stringify(orderedlist));
+    }
+
+    showorder();
+  }
+}
+
 function del() {
   localStorage.removeItem("new");
-  // let ords = JSON.parse(localStorage.getItem("new"));
-  // ords.pop();
-  // localStorage.setItem("new", JSON.stringify(ords));
   showorder();
 }
 
 function delRecent() {
-  // localStorage.removeItem("new");
   let ords = JSON.parse(localStorage.getItem("new"));
   ords.pop();
   localStorage.setItem("new", JSON.stringify(ords));
