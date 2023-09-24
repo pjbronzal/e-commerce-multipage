@@ -104,13 +104,36 @@ let customer = {
 
 orderedlist = localStorage.getItem("new");
 
+function calculateSubtotal() {
+  let orderedlist = JSON.parse(localStorage.getItem("new")) || [];
+  let subtotal = 0;
+
+  orderedlist.forEach(function (data) {
+    subtotal += data.totalPrice;
+  });
+
+  return subtotal.toFixed(2);
+}
+
+function updateTotal() {
+  let subtotal = parseFloat(calculateSubtotal());
+  let deliveryFee = 49;
+  let total = subtotal + deliveryFee;
+
+  let subtotalElement = document.getElementById("subtotal");
+  subtotalElement.innerText = "₱" + subtotal.toFixed(2);
+
+  let totalElement = document.getElementById("total");
+  totalElement.innerText = "₱" + total.toFixed(2);
+}
+
 function addOrder(id) {
   let orderedlist = JSON.parse(localStorage.getItem("new")) || [];
 
   const existingItemIndex = orderedlist.findIndex((item) => item.id === id);
 
   if (existingItemIndex !== -1) {
-    alert("This item is already in your order.");
+    alert("This item is already in your order."); //not working :<
   } else {
     let new_id = document.getElementById("ids" + id).innerText;
     let new_order = document.getElementById("menu" + id).innerText;
@@ -134,6 +157,7 @@ function addOrder(id) {
 
     document.querySelector(`button[data-id="${id}"]`).disabled = true;
   }
+  updateTotal();
 }
 
 function calculateTotal() {
@@ -144,7 +168,7 @@ function calculateTotal() {
     total += data.totalPrice;
   });
 
-  return total.toFixed(2); // Round to two decimal places
+  return total.toFixed(2);
 }
 
 function showorder() {
@@ -187,7 +211,10 @@ function showorder() {
 
   let totalElement = document.getElementById("total");
   totalElement.innerText = "₱" + calculateTotal();
+  updateTotal();
 }
+
+updateTotal();
 
 function deleteThisOrder(index) {
   let orderedlist = JSON.parse(localStorage.getItem("new"));
@@ -203,6 +230,7 @@ function deleteThisOrder(index) {
 
     showorder();
   }
+  updateTotal();
 }
 
 function addQty(index) {
@@ -215,6 +243,7 @@ function addQty(index) {
     localStorage.setItem("new", JSON.stringify(orderedlist));
     showorder();
   }
+  updateTotal();
 }
 
 function minusQty(index) {
@@ -229,6 +258,7 @@ function minusQty(index) {
       showorder();
     }
   }
+  updateTotal();
 }
 
 customer.showproducts();

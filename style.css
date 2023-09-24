@@ -22,7 +22,7 @@ nav ul li {
 }
 
 #menu-section {
-  margin: 100px 0;
+  margin: 100px 0 0;
 }
 #menu-section .menu .card-title {
   font-size: 12px;
@@ -43,7 +43,7 @@ nav ul li {
   overflow: auto;
 }
 #menu-section .order-list #dataContainer {
-  height: 350px;
+  height: 300px;
   overflow: auto;
   overflow-x: hidden;
 }
