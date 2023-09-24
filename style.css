@@ -21,18 +21,9 @@ nav ul li {
   font-weight: bold;
 }
 
-.menu .menu-list {
-  flex: 1;
-  padding: 20px;
+#menu .menu .card-title {
+  font-size: 12px;
 }
-.menu .order-list {
-  border-left: 1px solid #dedede;
-  flex: 0 0 auto;
-  top: 100px;
-  height: 80vh;
-  overflow-y: auto;
-}
-.menu .order-list .order-items {
-  margin-top: 20px;
-  height: 300px;
+#menu .menu .price {
+  font-size: 10.5px;
 }

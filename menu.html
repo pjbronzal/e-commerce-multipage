@@ -12,11 +12,42 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="img/mcdo-logo.png">
-    <title>Menu</title>
+
+    <title>Ordering Web App</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg position-sticky bg-warning">
+    <!-- Messenger Chat Plugin Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Chat Plugin code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+        var chatbox = document.getElementById('fb-customer-chat');
+        chatbox.setAttribute("page_id", "134726986387573");
+        chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+    <!-- Your SDK code -->
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                xfbml: true,
+                version: 'v18.0'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <nav class="navbar navbar-expand-lg bg-warning">
         <div class="container-fluid">
             <a class="navbar-brand ms-5" href="#"><img src="img/McDelivery.png" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -27,10 +58,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Menu</a>
+                        <a class="nav-link active" aria-current="page" href="menu.html">Menu</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Orders</a>
@@ -46,133 +77,295 @@
     </nav>
 
     <section id="menu">
-        <div class="container-fluid menu d-flex">
+        <div class="container mt-5">
             <div class="row">
-                <div class="col-md-9 pt-4 menu-list">
-                    <h4 class="text-center fw-bold">Choose Your Meal</h4>
+                <div class="col-sm-7 col-12 mb-3 menu">
+                    <div class="border-0">
+                        <div class="card-header bg-white text-center">
+                            <h4 class="fw-bold p-1">Choose Your Meal</h4>
+                        </div>
+                        <hr>
+                        <div class="card-body bg-white">
+                            <!-- 1st Main Meal -->
+                            <div class="row mb-3">
+                                <div class="col-md-3">
+                                    <div class="card mb-3">
+                                        <img src="img/1-pc. Mushroom Pepper Steak Rice Bowl Solo.webp"
+                                            class="card-img-top">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Mushroom Pepper Steak</h5>
+                                            <div class="row">
+                                                <div class="col-6 fw-bold price">₱79.00</div>
+                                                <div class="col-6 text-end">
+                                                    <button onclick="orderMeal('Mushroom Pepper Steak', 79)" id=""
+                                                        class="btn btn-sm btn-warning"><i
+                                                            class="fa-solid fa-plus"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                    <div class="container">
-                        <!-- 1st Main Meal -->
-                        <div class="row mb-3">
-                            <div class="col-md-3">
-                                <div class="card mb-3">
-                                    <img src="img/1-pc. Mushroom Pepper Steak Rice Bowl Solo.webp" class="card-img-top">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Mushroom Pepper Steak</h5>
-                                        <div class="row">
-                                            <div class="col-6 fw-bold price">₱79.00</div>
-                                            <div class="col-6 text-end">
-                                                <button onclick="orderMeal('Mushroom Pepper Steak', 79)" id=""
-                                                    class="btn btn-sm btn-warning"><i
-                                                        class="fa-solid fa-plus"></i></button>
+                                <div class="col-md-3">
+                                    <div class="card mb-3">
+                                        <img src="img/Burger Mcdo Solo.png" class="card-img-top">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Burger McDo Solo
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+                                            <div class="row">
+                                                <div class="col-6 fw-bold price">₱44.00</div>
+                                                <div class="col-6 text-end">
+                                                    <button onclick="orderMeal('Burger McDo Solo', 44)"
+                                                        class="btn btn-sm btn-warning"><i
+                                                            class="fa-solid fa-plus"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="card mb-3">
+                                        <img src="img/McSpaghetti Solo.webp" class="card-img-top">
+                                        <div class="card-body">
+                                            <h5 class="card-title">McSpaghetti Solo
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+                                            <div class="row">
+                                                <div class="col-6 fw-bold price">₱72.00</div>
+                                                <div class="col-6 text-end">
+                                                    <button onclick="orderMeal('McSpaghetti Solo', 72)"
+                                                        class="btn btn-sm btn-warning"><i
+                                                            class="fa-solid fa-plus"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="card mb-3">
+                                        <img src="img/McCafé Iced Coffee Original.webp" class="card-img-top">
+                                        <div class="card-body">
+                                            <h5 class="card-title">McCafé Iced Coffee Original</h5>
+                                            <div class="row">
+                                                <div class="col-6 fw-bold price">₱61.00</div>
+                                                <div class="col-6 text-end">
+                                                    <button onclick="orderMeal('McCafé Iced Coffee Original', 61)"
+                                                        class="btn btn-sm btn-warning"><i
+                                                            class="fa-solid fa-plus"></i></button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-3">
-                                <div class="card mb-3">
-                                    <img src="img/Burger Mcdo Solo.png" class="card-img-top">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Burger McDo Solo
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
-                                        <div class="row">
-                                            <div class="col-6 fw-bold price">₱44.00</div>
-                                            <div class="col-6 text-end">
-                                                <button onclick="orderMeal('Burger McDo Solo', 44)"
-                                                    class="btn btn-sm btn-warning"><i
-                                                        class="fa-solid fa-plus"></i></button>
+                            <!-- 2nd Main Meal -->
+                            <div class="row mb-3">
+                                <div class="col-md-3">
+                                    <div class="card mb-3">
+                                        <img src="img/McCrispy Chicken Sandwich Solo.png" class="card-img-top">
+                                        <div class="card-body">
+                                            <h5 class="card-title">McCrispy Chicken Sandwich Solo</h5>
+                                            <div class="row">
+                                                <div class="col-6 fw-bold price">₱61.00</div>
+                                                <div class="col-6 text-end">
+                                                    <button onclick="orderMeal('McCrispy Chicken Sandwich Solo', 61)"
+                                                        id="" class="btn btn-sm btn-warning"><i
+                                                            class="fa-solid fa-plus"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="card mb-3">
+                                        <img src="img/McCrispy Chicken Fillet Ala King Solo.webp" class="card-img-top">
+                                        <div class="card-body">
+                                            <h5 class="card-title">McCrispy Chicken Fillet Ala King Solo</h5>
+                                            <div class="row">
+                                                <div class="col-6 fw-bold price">₱89.00</div>
+                                                <div class="col-6 text-end">
+                                                    <button
+                                                        onclick="orderMeal('McCrispy Chicken Fillet Ala King Solo', 89)"
+                                                        id="" class="btn btn-sm btn-warning"><i
+                                                            class="fa-solid fa-plus"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="card mb-3">
+                                        <img src="img/McCrispy Chicken Fillet Solo.webp" class="card-img-top">
+                                        <div class="card-body">
+                                            <h5 class="card-title">McCrispy Chicken Fillet Solo</h5>
+                                            <div class="row">
+                                                <div class="col-6 fw-bold price">₱79.00</div>
+                                                <div class="col-6 text-end">
+                                                    <button onclick="orderMeal('McCrispy Chicken Fillet Solo', 79)"
+                                                        id="" class="btn btn-sm btn-warning"><i
+                                                            class="fa-solid fa-plus"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="card mb-3">
+                                        <img src="img/Medium Fries.webp" class="card-img-top">
+                                        <div class="card-body">
+                                            <h5 class="card-title">McDonald's Medium Fries
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+                                            <div class="row">
+                                                <div class="col-6 fw-bold price">₱60.00</div>
+                                                <div class="col-6 text-end">
+                                                    <button onclick="orderMeal('McDonalds Medium Fries', 60)" id=""
+                                                        class="btn btn-sm btn-warning"><i
+                                                            class="fa-solid fa-plus"></i></button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-3">
-                                <div class="card mb-3">
-                                    <img src="img/McSpaghetti Solo.webp" class="card-img-top">
-                                    <div class="card-body">
-                                        <h5 class="card-title">McSpaghetti Solo
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
-                                        <div class="row">
-                                            <div class="col-6 fw-bold price">₱72.00</div>
-                                            <div class="col-6 text-end">
-                                                <button onclick="orderMeal('McSpaghetti Solo', 72)"
-                                                    class="btn btn-sm btn-warning"><i
-                                                        class="fa-solid fa-plus"></i></button>
+                            <!-- Drinks / Desserts -->
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="card mb-3">
+                                        <img src="img/McFlurry with Oreo.png" class="card-img-top">
+                                        <div class="card-body">
+                                            <h5 class="card-title">McFlurry® with Oreo®</h5>
+                                            <div class="row">
+                                                <div class="col-6 fw-bold price">₱59.00</div>
+                                                <div class="col-6 text-end">
+                                                    <button onclick="orderMeal('McFlurry with Oreo', 59)" id=""
+                                                        class="btn btn-sm btn-warning"><i
+                                                            class="fa-solid fa-plus"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="card mb-3">
+                                        <img src="img/Hot Fudge Sundae.webp" class="card-img-top">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Hot Fudge Sundae</h5>
+                                            <div class="row">
+                                                <div class="col-6 fw-bold price">₱53.00</div>
+                                                <div class="col-6 text-end">
+                                                    <button onclick="orderMeal('Hot Fudge Sundae', 53)" id=""
+                                                        class="btn btn-sm btn-warning"><i
+                                                            class="fa-solid fa-plus"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="card mb-3">
+                                        <img src="img/Coke McFloat.png" class="card-img-top">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Coke McFloat Medium</h5>
+                                            <div class="row">
+                                                <div class="col-6 fw-bold price">₱55.00</div>
+                                                <div class="col-6 text-end">
+                                                    <button onclick="orderMeal('Coke McFloat Medium', 55)" id=""
+                                                        class="btn btn-sm btn-warning"><i
+                                                            class="fa-solid fa-plus"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="card mb-3">
+                                        <img src="img/Lipton Iced Tea.webp" class="card-img-top">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Lipton Iced Tea &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            </h5>
+                                            <div class="row">
+                                                <div class="col-6 fw-bold price">₱79.00</div>
+                                                <div class="col-6 text-end">
+                                                    <button onclick="orderMeal('Lipton Iced Tea', 79)" id=""
+                                                        class="btn btn-sm btn-warning"><i
+                                                            class="fa-solid fa-plus"></i></button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-3">
-                                <div class="card mb-3">
-                                    <img src="img/McCafé Iced Coffee Original.webp" class="card-img-top">
-                                    <div class="card-body">
-                                        <h5 class="card-title">McCafé Iced Coffee Original</h5>
-                                        <div class="row">
-                                            <div class="col-6 fw-bold price">₱61.00</div>
-                                            <div class="col-6 text-end">
-                                                <button onclick="orderMeal('McCafé Iced Coffee Original', 61)"
-                                                    class="btn btn-sm btn-warning"><i
-                                                        class="fa-solid fa-plus"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-5 col-12 receipt">
+                    <div class="card">
+                        <div class="card-header bg-white text-center">
+                            <h4 class="fw-bold">Order List</h4>
+                        </div>
+                        <div class="card-body bg-white" id="dataContainer">
+                            <div class="row">
+                                <div class="col-9">
+                                    <p class="fw-bold">ITEM</p>
+                                    <ul id="itemName"></ul>
+                                </div>
+                                <div class="col-3 text-end">
+                                    <p class="fw-bold">AMOUNT</p>
+                                    <ul id="itemPrice"></ul>
                                 </div>
                             </div>
+
+                            <div class="row">
+                                <hr class="mt-2">
+                                <div class="col-6 fw-bold">
+                                    Total
+                                </div>
+                                <div class="col-6">
+                                    <p class="fw-bold text-end" id="total"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="container mt-3 text-center">
+                        <button type="button" id="openModalBtn" class="btn btn-sm btn-success" data-bs-toggle="modal"
+                            data-bs-target="#printTicket"><small><i class="fa-solid fa-print me-2"></i>Proceed To
+                                Checkout</small></button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <!-- Ticket Modal -->
+        <div class="modal fade" id="printTicket" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title fw-bold" id="exampleModalLabel">McDonald's Order Ticket</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5 class="text-center fw-bold">Your order number is</h5>
+                        <h1 class="text-center fw-bold" id="ticketNumber"></h1>
+                        <hr>
+                        <div class="card-body bg-white">
+                            <ul id="modalData"></ul> <!-- Separate list for modal content -->
                         </div>
                     </div>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
-                <div class="col-md-3 order-list position-sticky p-0">
-                    <div class="d-flex flex-column justify-content-between">
-                        <h4 class="fw-bold text-center">Order List</h4>
-                        <div class="order-items overflow-auto p-3">
-                            <!-- <p>Cheesecake</p>
-                            <p>Cheesecake</p>
-                            <p>Cheesecake</p>
-                            <p>Cheesecake</p>
-                            <p>Cheesecake</p>
-                            <p>Cheesecake</p>
-                            <p>Cheesecake</p>
-                            <p>Cheesecake</p>
-                            <p>Cheesecake</p>
-                            <p>Cheesecake</p>
-                            <p>Cheesecake</p> -->
-                        </div>
-                        <div class="total p-2">
-                            <hr>
-                            <p class="fw-bold">Total</p>
-                            <button class="btn btn-warning w-100 rounded-5 fw-bold">Proceed To Checkout</button>
-                        </div>
-                    </div>
-
-                </div>
-
-
-
             </div>
         </div>
     </section>
