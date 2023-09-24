@@ -1,4 +1,4 @@
-let user = {
+let customer = {
   orderlist: [],
   menulist: [
     {
@@ -78,20 +78,19 @@ let user = {
   showproducts() {
     let menu = document.getElementById("menu-list");
     let menulist = "";
-    // Loop for Array
-    this.menulist.forEach(function (lalagyan) {
+    this.menulist.forEach(function (data) {
       menulist += `
       <div class="col-md-3 col-12">
         <div class="card mb-3">
-            <p id="ids${lalagyan.id}" hidden>${lalagyan.id}</p>
-            <img id="image${lalagyan.id}" src="${lalagyan.image}" class="card-img-top">
+            <p id="ids${data.id}" hidden>${data.id}</p>
+            <img id="image${data.id}" src="${data.image}" class="card-img-top">
 
             <div class="card-body">
-                <h5 class="card-title" id="menu${lalagyan.id}">${lalagyan.mealName}</h5>
+                <h5 class="card-title" id="menu${data.id}">${data.mealName}</h5>
                 <div class="row">
-                <div class="col-6 fw-bold price" id="price${lalagyan.id}">₱${lalagyan.price}.00</div>
+                <div class="col-6 fw-bold price" id="price${data.id}">₱${data.price}.00</div>
                     <div class="col-6 text-end">
-                    <button class="btn btn-sm btn-warning" onclick="addOrder(${lalagyan.id})">+</button>
+                    <button class="btn btn-sm btn-warning" onclick="addOrder(${data.id})">+</button>
                     </div>
                 </div>
             </div>
@@ -106,34 +105,34 @@ let user = {
 orderedlist = localStorage.getItem("new");
 
 function addOrder(id) {
-  let array = JSON.parse(localStorage.getItem("new"));
+  let orderedlist = JSON.parse(localStorage.getItem("new")) || [];
 
-  if (array == null) {
-    user.orderedlist = [];
-    let new_id = document.getElementById("ids" + id).innerText;
-    let new_order = document.getElementById("menu" + id).innerText;
-    let new_price = document.getElementById("price" + id).innerText;
+  const existingItemIndex = orderedlist.findIndex((item) => item.id === id);
 
-    user.orderedlist.push({
-      id: new_id,
-      mealName: new_order,
-      price: new_price,
-    });
-    localStorage.setItem("new", JSON.stringify(user.orderedlist));
-    showorder();
+  if (existingItemIndex !== -1) {
+    alert("This item is already in your order.");
   } else {
-    user.orderedlist = JSON.parse(localStorage.getItem("new"));
     let new_id = document.getElementById("ids" + id).innerText;
     let new_order = document.getElementById("menu" + id).innerText;
-    let new_price = document.getElementById("price" + id).innerText;
+    let new_price = parseFloat(
+      document
+        .getElementById("price" + id)
+        .innerText.replace("₱", "")
+        .replace(".00", "")
+    );
 
-    user.orderedlist.push({
+    orderedlist.push({
       id: new_id,
       mealName: new_order,
       price: new_price,
+      quantity: 1,
+      totalPrice: new_price,
     });
-    localStorage.setItem("new", JSON.stringify(user.orderedlist));
+
+    localStorage.setItem("new", JSON.stringify(orderedlist));
     showorder();
+
+    document.querySelector(`button[data-id="${id}"]`).disabled = true;
   }
 }
 
@@ -147,22 +146,30 @@ function showorder() {
     order.innerHTML =
       "<div class='container text-center'><small>No orders yet. Add something from the menu.</small></div>";
   } else {
-    orderedlist.forEach(function (lalagyan, index) {
+    orderedlist.forEach(function (data, index) {
       orderlist += `
-        <div class="row">
-          <div class="col-2 text-center">
-              <button class="btn p-0 border-0" onclick="deleteThisOrder(${index})"><i class="fa-regular fa-circle-xmark"></i></button>
+          <div class="row">
+            <div class="col-1 text-center">
+                <button class="btn p-0 border-0" onclick="deleteThisOrder(${index})"><i class="fa-regular fa-trash-can"></i></button>
+            </div>
+    
+            <div class="wrapper col-3">
+              <span class="minus" onclick="minusQty(${index})">-</span>
+              <span class="num">${data.quantity
+                .toString()
+                .padStart(2, "0")}</span>
+              <span class="plus" onclick="addQty(${index})">+</span>
+            </div>
+    
+            <div class="col-6 text-start">
+                <li>${data.mealName}</li>
+            </div>
+    
+            <div class="col-2 text-end">
+                <li>₱${data.totalPrice.toFixed(2)}</li>
+            </div>
           </div>
-  
-          <div class="col-7 text-start">
-              <li>${lalagyan.mealName}</li>
-          </div>
-  
-          <div class="col-3 text-center">
-              <li>${lalagyan.price}</li>
-          </div>
-        </div>
-        `;
+          `;
     });
     order.innerHTML = orderlist;
   }
@@ -184,5 +191,31 @@ function deleteThisOrder(index) {
   }
 }
 
-user.showproducts();
+function addQty(index) {
+  let orderedlist = JSON.parse(localStorage.getItem("new"));
+
+  if (orderedlist && index >= 0 && index < orderedlist.length) {
+    orderedlist[index].quantity++;
+    orderedlist[index].totalPrice =
+      orderedlist[index].quantity * orderedlist[index].price;
+    localStorage.setItem("new", JSON.stringify(orderedlist));
+    showorder();
+  }
+}
+
+function minusQty(index) {
+  let orderedlist = JSON.parse(localStorage.getItem("new"));
+
+  if (orderedlist && index >= 0 && index < orderedlist.length) {
+    if (orderedlist[index].quantity > 1) {
+      orderedlist[index].quantity--;
+      orderedlist[index].totalPrice =
+        orderedlist[index].quantity * orderedlist[index].price;
+      localStorage.setItem("new", JSON.stringify(orderedlist));
+      showorder();
+    }
+  }
+}
+
+customer.showproducts();
 showorder();
